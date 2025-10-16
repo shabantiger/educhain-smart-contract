@@ -1,28 +1,76 @@
-REMIX DEFAULT WORKSPACE
 
-Remix default workspace is present when:
-i. Remix loads for the very first time 
-ii. A new workspace is created with 'Default' template
-iii. There are no files existing in the File Explorer
+# 🎓 EduChain Smart Contract
 
-This workspace contains 3 directories:
+EduChain is a **blockchain-based academic certificate platform** that allows educational institutions to issue verifiable certificates as NFTs.  
+This repository contains the **Solidity smart contract code** deployed on the **Base Network** (an Ethereum Layer 2 by Coinbase).
 
-1. 'contracts': Holds three contracts with increasing levels of complexity.
-2. 'scripts': Contains four typescript files to deploy a contract. It is explained below.
-3. 'tests': Contains one Solidity test file for 'Ballot' contract & one JS test file for 'Storage' contract.
+---
 
-SCRIPTS
+## 🚀 Overview
 
-The 'scripts' folder has four typescript files which help to deploy the 'Storage' contract using 'web3.js' and 'ethers.js' libraries.
+EduChain eliminates certificate fraud by minting each academic certificate as a **non-fungible token (NFT)**.  
+These NFTs are **tamper-proof, globally verifiable**, and permanently stored on-chain with metadata hosted on **IPFS**.
 
-For the deployment of any other contract, just update the contract name from 'Storage' to the desired contract and provide constructor arguments accordingly 
-in the file `deploy_with_ethers.ts` or  `deploy_with_web3.ts`
+**Core Features:**
+- Mint academic certificates as ERC-721 NFTs  
+- Bulk issuance for multiple students  
+- On-chain verification using wallet address or certificate ID  
+- Integration with IPFS for decentralized metadata storage  
+- Role-based access for institutions and verifiers  
 
-In the 'tests' folder there is a script containing Mocha-Chai unit tests for 'Storage' contract.
+---
 
-To run a script, right click on file name in the file explorer and click 'Run'. Remember, Solidity file must already be compiled.
-Output from script will appear in remix terminal.
+## 🧠 Smart Contract Details
 
-Please note, require/import is supported in a limited manner for Remix supported modules.
-For now, modules supported by Remix are ethers, web3, swarmgw, chai, multihashes, remix and hardhat only for hardhat.ethers object/plugin.
-For unsupported modules, an error like this will be thrown: '<module_name> module require is not supported by Remix IDE' will be shown.
+**Language:** Solidity  
+**Standard:** ERC-721  
+**Network:** Base (Ethereum Layer 2)  
+**Deployed Contract Address:** `0xBD4228241dc6BC14C027bF8B6A24f97bc9872068`  
+**Compiler Version:** `^0.8.20`
+
+---
+
+## 📂 File Structure
+
+
+---
+
+## ⚙️ How It Works
+
+1. **Institution Onboarding:**  
+   Authorized institutions are added to the contract via an admin function.  
+
+2. **Certificate Issuance:**  
+   Institutions call the `mintCertificate()` function with metadata URI (stored on IPFS).  
+
+3. **Verification:**  
+   Employers or third parties can verify certificates by wallet address or token ID directly on-chain.  
+
+4. **Bulk Minting:**  
+   Institutions can issue multiple certificates in a single transaction, optimizing gas usage.  
+
+---
+
+## 🛠️ Technologies Used
+
+- **Solidity** – Smart contract development  
+- **Base Network** – Layer 2 deployment  
+- **Ethers.js** – Frontend Web3 integration  
+- **IPFS / Pinata** – Decentralized metadata storage  
+- **Hardhat** – Local development and testing  
+- **OpenZeppelin** – Security-audited ERC-721 standards  
+
+---
+
+## 🧪 Deployment & Testing
+
+### Prerequisites
+- Node.js >= 18.x  
+- Hardhat installed globally (`npm install -g hardhat`)  
+- MetaMask wallet connected to Base Testnet  
+
+### Installation
+```bash
+git clone https://github.com/shabantiger/EduChain-smart-Contract.git
+cd EduChain-Contract
+npm install
